@@ -1,147 +1,22 @@
 import inquirer from "inquirer"
+import chalk from "chalk"
 
-let cal = await inquirer.prompt([
+const number= Math.floor(Math.random()*5+1)
+const answer= await inquirer.prompt([
     {
-    type:"number",
-    name:"n1",
-    message:"enter yor 1st number"
-    
-    },
-    {
-        type:"number",
-        name:"n2",
-        message:"enter yor 2nd number",
-        
-        },
-        {
-            type:"number",
-            name:"n3",
-            message:"enter yor 3rd number"
-            
-            },
-        {
-            type:'input',
-            name:'op',
-            message:'enter your operator',
-           choice:['a/a','a/s','a/m','a/d']
-                   
-        }
-        ])
+        name:"guessnumber",
+        type: number,
+        message:"pls guess the nummber between 1-5"
+    }
+])
 
-        //in all choices (A for 'addition',S for substraction ,
-        //M for multiplicaton and D for division)
-    
+if (answer.guessnumber==number){
+    console.log(chalk.white.bgGreen.bold("you guess correct number"))
+}
+else {
+    console.log(chalk.bgRed("you guess wrong number"))
+}
 
-//10 + 10 + 10    
-     if (cal.op =='a/a'){
-        console.log( cal.n1+cal.n2+cal.n3)
-    }
-    //10+10-10
-    else if (cal.op =='a/s'){
-        console.log(cal.n1+cal.n2-cal.n3)
-    }
-    //10+10*10
-    else if (cal.op =='a/m'){
-        console.log(cal.n1+cal.n2*cal.n3)
-    }
-    //10+10/10
-    else if (cal.op =='a/d'){
-        console.log(cal.n1+cal.n2/cal.n3)
-    }
-([{
-    
-        type:'input',
-        name:'op',
-        message:'enter your operator',
-       choice:['sa','ss','sm','sd']
-     
-       
-    
-
-}])
-   
-
-//10-10+10
-
-    if (cal.op =='sa'){
-        console.log( cal.n1-cal.n2+cal.n3)
-    }
-    //10-10-10
-    else if (cal.op =='ss'){
-        console.log(cal.n1-cal.n2-cal.n3)
-    }
-    //10-10*10
-    else if (cal.op =='sm'){
-        console.log(cal.n1-cal.n2*cal.n3)
-    }
-    //10-10/10
-    else if (cal.op =='sd'){
-        console.log(cal.n1-cal.n2/cal.n3)
-    }
-
-    ([{
-    
-        type:'input',
-        name:'op',
-        message:'enter your operator',
-       choice:['ma','ms','mm','md']
-     
-       
-    
-
-}])
-
-//10*10+10      =110
-    if (cal.op =='ms'){
-        console.log( cal.n1*cal.n2+cal.n3)
-    }
-    //10*10-10    =90
-    else if (cal.op =='ms'){
-        console.log(cal.n1*cal.n2-cal.n3)
-    }
-    //10*10*10     =1000
-    else if (cal.op =='mm'){
-        console.log(cal.n1*cal.n2*cal.n3)
-    }
-    //10*10/10      =10
-    else if (cal.op =='md'){
-        console.log(cal.n1*cal.n2/cal.n3)
-    }
-  
-    ([{
-    
-        type:'input',
-        name:'op',
-        message:'enter your operator',
-       choice:['da','ds','dm','dd']
-         
-
-}])
-
-//10/10+10          =11
-    if (cal.op =='da'){
-        console.log( cal.n1/cal.n2+cal.n3)
-    }
-    //10/10-10      =1
-    else if (cal.op =='ds'){
-        console.log(cal.n1/cal.n2-cal.n3)
-    }
-    //10/10*10      =10
-    else if (cal.op =='dm'){
-        console.log(cal.n1/cal.n2*cal.n3)
-    }
-    //10/10/10      =0.1
-    else if (cal.op =='dd')
-        {
-        console.log(cal.n1/cal.n2/cal.n3)
-    }
-   
-   else 
-    {
-        console.log('please enter valid numbers or operator')
-    }
-    
-    
-    
-    
-
+if (answer.guessnumber > 5) {
+    console.log(chalk.bgBlue("Please enter a number between 1 and 5."));
+}
